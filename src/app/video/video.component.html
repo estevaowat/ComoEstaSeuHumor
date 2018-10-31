@@ -1,0 +1,13 @@
+<webcam (imageCapture)="handleImage($event)" [trigger]="triggerObservable"></webcam>
+<button (click)="triggerSnapshot();">Tirar foto</button>
+
+<div>
+  <ul>
+    <li>Raiva: {{probabilidades.raiva }}</li>
+    <li>Imagem borrada: {{probabilidades.borrado }}</li>
+    <li>Acessorios na caebca: {{probabilidades.acessoriosCabeca }}</li>
+    <li>alegria: {{probabilidades.alegria }}</li>
+    <li>Tristeza: {{probabilidades.tristeza }}</li>
+    <li>Supresa: {{probabilidades.surpresa }}</li>
+  </ul>
+</div>
