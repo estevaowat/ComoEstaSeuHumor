@@ -1,13 +1,46 @@
-<webcam (imageCapture)="handleImage($event)" [trigger]="triggerObservable"></webcam>
-<button (click)="triggerSnapshot();">Tirar foto</button>
+<div class="container" id="video-component">
+  <h1 style="margin-left: 35%" class="texto-branco">Expressoes faciais</h1>
+  <div class="row t-20" *ngIf="mensagemErro=='';else MensagemErro">
+    <div class="col" style="margin-left: 15%">
+      <webcam [height]="500" [width]="500" (imageCapture)="handleImage($event)" (initError)="handleInitError($event)"
+        [trigger]="triggerObservable"></webcam>
+    </div>
+    <div class="col l-20" *ngIf="mensagemErro==''">
+      <h2 class="t-20 texto-branco">Imagem a ser analisada</h2>
+      <img *ngIf="print !== undefined" [src]="print" style="width: 300px;" class="t-20" />
+    </div>
+  </div>
 
-<div>
-  <ul>
-    <li>Raiva: {{probabilidades.raiva }}</li>
-    <li>Imagem borrada: {{probabilidades.borrado }}</li>
-    <li>Acessorios na caebca: {{probabilidades.acessoriosCabeca }}</li>
-    <li>alegria: {{probabilidades.alegria }}</li>
-    <li>Tristeza: {{probabilidades.tristeza }}</li>
-    <li>Supresa: {{probabilidades.surpresa }}</li>
-  </ul>
+
+  <div class="row t-20">
+    <div class="col center-block">
+      <button style="margin-left: 50%" class="t-20" (click)="triggerSnapshot();" [disabled]="btnAnalisarRosto" type="button"
+        class="btn btn-primary btn-lg center-block">Analisar
+        foto</button>
+    </div>
+  </div>
+
+  <ng-template #MensagemErro>
+    <h3 style="margin-left: 50%" class="t-20 texto-branco">Mensagem de erro: {{mensagemErro}}. <br />Por favor, permite
+      utilizar a camera e atualize a página para prosseguirmos!</h3>
+  </ng-template>
+
+  <div class="t-20" *ngIf="!mostraLoader;else divLoader">
+    <ul class="list-group">
+      <li class="list-group-item"><img src="../../assets/angry.png" class="imagem-icone" /> Raiva:
+        {{probabilidades.raiva }}</li>
+      <li class="list-group-item"><img src="../../assets/hat4.png" class="imagem-icone" /> Acessórios na Cabeça:
+        {{probabilidades.acessoriosCabeca }}</li>
+      <li class="list-group-item"><img src="../../assets/happy.png" class="imagem-icone" /> Alegria:
+        {{probabilidades.alegria }}</li>
+      <li class="list-group-item"><img src="../../assets/triste.png" class="imagem-icone" /> Tristeza:
+        {{probabilidades.tristeza }}</li>
+      <li class="list-group-item"><img src="../../assets/face-detection.png" class="imagem-icone" /> Supresa:
+        {{probabilidades.surpresa }}</li>
+    </ul>
+  </div>
+
+  <ng-template #divLoader>
+    <img src="../../assets/loader.gif" />
+  </ng-template>
 </div>

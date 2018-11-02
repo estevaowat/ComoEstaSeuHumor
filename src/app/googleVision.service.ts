@@ -13,8 +13,6 @@ export class GoogleVisionService {
     constructor(private http: Http) { }
 
     public analisarFoto(imagem: WebcamImage): Observable<any> {
-        console.log("Url da Imagem", imagem)
-
         var requisicao = {
             "requests": [
                 {
@@ -33,7 +31,7 @@ export class GoogleVisionService {
         return this.http.post(`${URL_GOOGLE_API} + ${TOKEN_GOOGLE_VISION}`, JSON.stringify(requisicao))
             .pipe(
                 map((resposta: Response) => {
-                    return resposta.json().responses[0].faceAnnotations[0]
+                    return resposta.json().responses[0]
                 })
             )
     }
