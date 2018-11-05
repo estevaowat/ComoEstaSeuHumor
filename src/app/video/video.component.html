@@ -1,7 +1,7 @@
 <div class="container" id="video-component">
-  <h1 style="margin-left: 35%" class="texto-branco">Expressoes faciais</h1>
+  <h1 style="margin-left: 30%" class="texto-branco">Qual sua Expressão!</h1>
   <div class="row t-20" *ngIf="mensagemErro=='';else MensagemErro">
-    <div class="col" style="margin-left: 15%">
+    <div class="col" style="margin-left: 9.5%">
       <webcam [height]="500" [width]="500" (imageCapture)="handleImage($event)" (initError)="handleInitError($event)"
         [trigger]="triggerObservable"></webcam>
     </div>
@@ -14,28 +14,32 @@
 
   <div class="row t-20">
     <div class="col center-block">
-      <button style="margin-left: 50%" class="t-20" (click)="triggerSnapshot();" [disabled]="btnAnalisarRosto" type="button"
-        class="btn btn-primary btn-lg center-block">Analisar
+      <button (click)="triggerSnapshot();" [disabled]="btnAnalisarRosto" type="button" class=" t-20 m-l-50 btn btn-primary btn-lg center-block">Analisar
         foto</button>
     </div>
   </div>
 
   <ng-template #MensagemErro>
-    <h3 style="margin-left: 50%" class="t-20 texto-branco">Mensagem de erro: {{mensagemErro}}. <br />Por favor, permite
+    <h3 class="t-20 m-l-50 texto-branco">Mensagem de erro: {{mensagemErro}}. <br />Por favor, permite
       utilizar a camera e atualize a página para prosseguirmos!</h3>
   </ng-template>
 
   <div class="t-20" *ngIf="!mostraLoader;else divLoader">
     <ul class="list-group">
-      <li class="list-group-item"><img src="../../assets/angry.png" class="imagem-icone" /> Raiva:
+      <li class="list-group-item" style="font-size:30px"><img src="../../assets/angry.png" class="imagem-icone" />
+        Raiva:
         {{probabilidades.raiva }}</li>
-      <li class="list-group-item"><img src="../../assets/hat4.png" class="imagem-icone" /> Acessórios na Cabeça:
+      <li class="list-group-item" style="font-size:30px"><img src="../../assets/hat4.png" class="imagem-icone" />
+        Acessórios na Cabeça:
         {{probabilidades.acessoriosCabeca }}</li>
-      <li class="list-group-item"><img src="../../assets/happy.png" class="imagem-icone" /> Alegria:
+      <li class="list-group-item" style="font-size:30px"><img src="../../assets/happy.png" class="imagem-icone" />
+        Alegria:
         {{probabilidades.alegria }}</li>
-      <li class="list-group-item"><img src="../../assets/triste.png" class="imagem-icone" /> Tristeza:
+      <li class="list-group-item" style="font-size:30px"><img src="../../assets/triste.png" class="imagem-icone" />
+        Tristeza:
         {{probabilidades.tristeza }}</li>
-      <li class="list-group-item"><img src="../../assets/face-detection.png" class="imagem-icone" /> Supresa:
+      <li class="list-group-item" style="font-size:30px"><img src="../../assets/surpresa.png" class="imagem-icone" />
+        Supresa:
         {{probabilidades.surpresa }}</li>
     </ul>
   </div>
@@ -43,4 +47,7 @@
   <ng-template #divLoader>
     <img src="../../assets/loader.gif" />
   </ng-template>
+
+  <div style="padding-bottom: 15%">
+  </div>
 </div>

@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam'
 import { GoogleVisionService } from "../googleVision.service";
 import { Probabilidades } from "../probabilidade.model";
-import { TouchSequence } from 'selenium-webdriver';
-
 
 @Component({
   selector: 'app-video',
@@ -38,6 +36,7 @@ export class VideoComponent implements OnInit {
     this.toggleLoader();
     this.toggleBotaoAnalisarRosto();
     this.trigger.next();
+    
   }
   public handleImage(webcamImage: WebcamImage): void {
     this.print = webcamImage.imageAsDataUrl
@@ -91,13 +90,13 @@ export class VideoComponent implements OnInit {
       case "VERY_UNLIKELY":
         return "Muito Pouco Provável"
       case "UNLIKELY":
-        return "Pouco provável"
+        return "Pouco Provável"
       case "POSSIBLE":
         return "Possível"
       case "LIKELY":
         return "Provável"
       case "VERY_LIKELY":
-        return "Muito provável"
+        return "Muito Provável"
     }
   }
 
