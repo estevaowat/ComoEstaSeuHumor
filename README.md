@@ -1,5 +1,5 @@
 # ComoEstaSeuHumor
-Este projeto utiliza a API do google Vision utiliza a câmera do computador para determinar qual é o sentimento mais provável que você está sentindo.
+Este projeto para a faculdade utiliza a API do Google Vision utiliza a câmera do computador para determinar qual é o sentimento mais provável que você está sentindo.
    
 ## Pré-requisitos
   - Angular-cli >= 6.2.6
