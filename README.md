@@ -1,11 +1,11 @@
 # ComoEstaSeuHumor
-Este projeto para a faculdade utiliza a API do Google Vision utiliza a câmera do computador para determinar qual é o sentimento mais provável que você está sentindo.
+A college project to implement Google Vision API and camera to ascertain what is the most likely feeling are you right now.
    
-## Pré-requisitos
+## Pre-requisites
   - Angular-cli >= 6.2.6
   - TypeScript >= 2.9.2
 
-## Rodar localmente 
-  - Clone esse repositório para sua máquina.
-  - `npm install` para instalar as depedências do node.
-  - `ng serve` para rodar localmente
+## Run in development mode
+  - Clone this project to your machine 
+  - Run `npm install` to install node dependencies.
+  - Run `ng serve` to start a development server
